@@ -1,3 +1,7 @@
+// Компонент монтируется один раз на каждый завершённый бросок, поэтому
+// случайные параметры конфетти вычисляются при монтировании — React Compiler
+// здесь не используется, а стабильность рендеров не важна.
+/* eslint-disable react-hooks/purity */
 import { useMemo } from 'react'
 import type { CSSProperties } from 'react'
 import './Confetti.scss'
