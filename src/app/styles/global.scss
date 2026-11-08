@@ -1,0 +1,86 @@
+:root {
+  --bg: #0a0d18;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --text: #eef1ff;
+  --text-dim: rgba(238, 241, 255, 0.6);
+  --accent: #7c5cff;
+  --accent-2: #22d3ee;
+  --accent-3: #f472b6;
+  --radius: 20px;
+  --die-size: 76px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -4%;
+  z-index: -2;
+  background:
+    radial-gradient(60% 50% at 15% 10%, rgba(124, 92, 255, 0.28), transparent 62%),
+    radial-gradient(50% 42% at 88% 18%, rgba(34, 211, 238, 0.18), transparent 62%),
+    radial-gradient(46% 46% at 72% 92%, rgba(244, 114, 182, 0.16), transparent 62%),
+    #0a0d18;
+  animation: bg-drift 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(70% 70% at 50% 40%, #000 30%, transparent 100%);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(124, 92, 255, 0.5);
+}
+
+@keyframes bg-drift {
+  to {
+    transform: scale(1.07) translate(-1%, 1.2%);
+    filter: hue-rotate(14deg);
+  }
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}

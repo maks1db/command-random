@@ -1,0 +1,30 @@
+.confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+
+  span {
+    position: absolute;
+    top: -24px;
+    width: 9px;
+    height: 15px;
+    opacity: 0;
+    animation: confetti-fall var(--dur) cubic-bezier(0.3, 0.55, 0.6, 1) var(--delay) forwards;
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, -24px, 0) rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift), 108vh, 0) rotate(var(--rot));
+  }
+}
